@@ -1,6 +1,7 @@
 const forms = document.querySelectorAll("form");
 const listContainers = document.querySelectorAll(".list-container");
 const taskItems = document.querySelectorAll(".task-item");
+let order = 0;
 
 forms.forEach(form => {
   form.addEventListener("submit", e => {
@@ -11,9 +12,12 @@ forms.forEach(form => {
       const taskItem = document.createElement("li");
       taskItem.setAttribute("draggable", true);
       taskItem.setAttribute("class", "task-item");
+      taskItem.setAttribute("id", `${listContainer.id}-${order}`);
       taskItem.textContent = taskInput.value;
       taskInput.value = "";
       listContainer.appendChild(taskItem);
+      console.log(taskItem.id);
+      order++;
     } else {
       taskInput.value = "";
     }
@@ -29,6 +33,7 @@ function dragStart(e) {
   } catch (error) {
     e.dataTransfer.setData("Text", e.target.id);
   }
+  console.log(this);
   sourceContainerId = this.parentElement.id;
 }
 
