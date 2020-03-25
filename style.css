@@ -9,6 +9,10 @@ body {
   color: #fff;
 }
 
+ul {
+  list-style: none;
+}
+
 .container,
 .top-heading,
 .bottom-heading,
@@ -24,7 +28,6 @@ form {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  border: 4px solid red;
 }
 
 .heading {
@@ -32,6 +35,7 @@ form {
   height: 30px;
   background-color: #13547c;
   margin: 25px;
+  border-radius: 5px;
 }
 
 .top-heading,
@@ -50,7 +54,6 @@ form {
   gap: 50px;
   justify-content: center;
   align-content: center;
-  border: 2px solid black;
 }
 
 .card {
@@ -58,6 +61,8 @@ form {
   height: 300px;
   background-color: #3da3e1;
   margin-bottom: 10px;
+  border-radius: 5px;
+  overflow-y: auto;
 }
 
 form {
@@ -68,19 +73,40 @@ input {
   padding: 5px;
   font-weight: bold;
   font-size: 1em;
-  border: 2px solid black;
+  border: none;
+  border-radius: 5px;
 }
 
-span {
+.list-container {
+  margin: 5px;
+  border-radius: 5px;
+  height: 80%;
+  border: 2px solid;
+}
+
+.task-item {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 10px;
+}
+
+#submit-btn {
   font-size: 2em;
-  background: none;
-  width: 35px;
-  height: 35px;
-  text-align: center;
-  line-height: 1;
+  width: 33px;
+  height: 33px;
+  line-height: 0;
   border: none;
   cursor: pointer;
-  border: 2px solid #000;
   border-radius: 50%;
   margin-left: 10px;
+}
+
+.over {
+  background-color: #fff;
+  opacity: 0.5;
+}
+
+.drag {
+  opacity: 0.25;
 }

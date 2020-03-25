@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eisenhower matrix</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
   </head>
   <body>
     <div class="container">
@@ -19,16 +20,30 @@
       <div class="card-container">
         <div class="card do-tasks">
           <form>
-            <input type="text" />
-            <span>+</span>
+            <input id="task-input" type="text" />
+            <input id="submit-btn" type="submit" value="+" />
           </form>
-          <ul></ul>
+          <ul id="first" class="list-container" data-role="drag-source-target">
+            <li id="first-0" draggable="true" class="task-item">Make tea</li>
+          </ul>
         </div>
         <div class="card schedule-tasks ">
-          <ul></ul>
+          <form>
+            <input id="task-input" type="text" />
+            <input id="submit-btn" type="submit" value="+" />
+          </form>
+          <ul id="second" class="list-container">
+            <li id="second-0" draggable="true" class="task-item">Make tea</li>
+          </ul>
         </div>
         <div class="card delegate-tasks">
-          <ul></ul>
+          <form>
+            <input id="task-input" type="text" />
+            <input id="submit-btn" type="submit" value="+" />
+          </form>
+          <ul id="third" class="list-container">
+            <li id="third-0" draggable="true" class="task-item">Make tea</li>
+          </ul>
         </div>
         <div class="card eliminate-tasks">
           <ul></ul>
