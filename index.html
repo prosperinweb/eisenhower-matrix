@@ -20,31 +20,31 @@
       <div class="card-container">
         <div class="card do-tasks">
           <form>
-            <input id="task-input" type="text" />
-            <input id="submit-btn" type="submit" value="+" />
+            <input class="task-input" type="text" />
+            <input class="submit-btn" type="submit" value="+" />
           </form>
           <ul
-            id="first"
+            id="do"
             class="list-container"
             data-role="drag-source-target"
-          ></ul>
+          >
         </div>
-        <div class="card schedule-tasks ">
+        <div class="card">
           <form>
-            <input id="task-input" type="text" />
-            <input id="submit-btn" type="submit" value="+" />
+            <input class="task-input" type="text" />
+            <input class="submit-btn" type="submit" value="+" />
           </form>
-          <ul id="second" class="list-container"></ul>
+          <ul id="schedule" class="list-container"></ul>
         </div>
-        <div class="card delegate-tasks">
+        <div class="card">
           <form>
-            <input id="task-input" type="text" />
-            <input id="submit-btn" type="submit" value="+" />
+            <input class="task-input" type="text" />
+            <input class="submit-btn" type="submit" value="+" />
           </form>
-          <ul id="third" class="list-container"></ul>
+          <ul id="delegate" class="list-container"></ul>
         </div>
-        <div class="card eliminate-tasks">
-          <ul></ul>
+        <div class="card">
+          <ul id="eliminate"></ul>
         </div>
       </div>
     </div>

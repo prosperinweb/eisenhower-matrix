@@ -89,9 +89,10 @@ input {
   border-radius: 5px;
   padding: 5px;
   margin: 5px 10px;
+  word-wrap: break-word;
 }
 
-#submit-btn {
+.submit-btn {
   font-size: 2em;
   width: 33px;
   height: 33px;

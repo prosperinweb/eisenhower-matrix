@@ -1,6 +1,5 @@
 const forms = document.querySelectorAll("form");
 const listContainers = document.querySelectorAll(".list-container");
-const taskItems = document.querySelectorAll(".task-item");
 let order = 0;
 
 forms.forEach(form => {
@@ -14,10 +13,11 @@ forms.forEach(form => {
       taskItem.setAttribute("class", "task-item");
       taskItem.setAttribute("id", `${listContainer.id}-${order}`);
       taskItem.textContent = taskInput.value;
-      taskInput.value = "";
       listContainer.appendChild(taskItem);
       console.log(taskItem.id);
+      taskInput.value = "";
       order++;
+      taskItem.addEventListener("dragstart", dragStart);
     } else {
       taskInput.value = "";
     }
@@ -58,10 +58,6 @@ function cancel(e) {
   if (e.stopPropagation) e.stopPropagation();
   return false;
 }
-
-taskItems.forEach(taskItem => {
-  taskItem.addEventListener("dragstart", dragStart);
-});
 
 listContainers.forEach(listContainer => {
   listContainer.addEventListener("drop", dropped);
