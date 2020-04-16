@@ -8,7 +8,7 @@
     <script defer src="app.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="wrapper">
       <div class="top-heading">
         <div class="heading not-urgent">Not Urgent</div>
         <div class="heading urgent">Urgent</div>
@@ -18,10 +18,10 @@
         <div class="heading not-important">Not Important</div>
       </div>
       <div class="card-container">
-        <div class="card do-tasks">
+        <div class="card">
           <form>
             <input class="task-input" type="text" />
-            <input class="submit-btn" type="submit" value="+" />
+            <button class="submit-btn" type="submit">+</button>
           </form>
           <ul
             id="do"
@@ -32,19 +32,19 @@
         <div class="card">
           <form>
             <input class="task-input" type="text" />
-            <input class="submit-btn" type="submit" value="+" />
+            <button class="submit-btn" type="submit">+</button>
           </form>
           <ul id="schedule" class="list-container"></ul>
         </div>
         <div class="card">
           <form>
             <input class="task-input" type="text" />
-            <input class="submit-btn" type="submit" value="+" />
+            <button class="submit-btn" type="submit">+</button>
           </form>
           <ul id="delegate" class="list-container"></ul>
         </div>
         <div class="card">
-          <ul id="eliminate"></ul>
+          <ul class="list-container" id="eliminate"></ul>
         </div>
       </div>
     </div>

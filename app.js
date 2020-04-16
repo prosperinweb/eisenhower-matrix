@@ -2,8 +2,8 @@ const forms = document.querySelectorAll("form");
 const listContainers = document.querySelectorAll(".list-container");
 let order = 0;
 
-forms.forEach(form => {
-  form.addEventListener("submit", e => {
+forms.forEach((form) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     const taskInput = form.firstElementChild;
     const listContainer = form.nextElementSibling;
@@ -13,11 +13,10 @@ forms.forEach(form => {
       taskItem.setAttribute("class", "task-item");
       taskItem.setAttribute("id", `${listContainer.id}-${order}`);
       taskItem.textContent = taskInput.value;
+      taskItem.addEventListener("dragstart", dragStart);
       listContainer.appendChild(taskItem);
-      console.log(taskItem.id);
       taskInput.value = "";
       order++;
-      taskItem.addEventListener("dragstart", dragStart);
     } else {
       taskInput.value = "";
     }
@@ -33,14 +32,12 @@ function dragStart(e) {
   } catch (error) {
     e.dataTransfer.setData("Text", e.target.id);
   }
-  console.log(this);
   sourceContainerId = this.parentElement.id;
 }
 
 function dropped(e) {
   let id;
-  console.log("Source: " + sourceContainerId);
-  console.log("Target: " + this.id);
+  e.target.classList.remove("over");
   if (this.id !== sourceContainerId) {
     cancel(e);
     try {
@@ -53,14 +50,28 @@ function dropped(e) {
   }
 }
 
+function dragLeave(e) {
+  e.target.classList.remove("over");
+}
+
+function deleteItem(e) {
+  console.log(e.target);
+}
+
 function cancel(e) {
   if (e.preventDefault) e.preventDefault();
   if (e.stopPropagation) e.stopPropagation();
+  if (e.type === "dragover") {
+    e.target.classList.add("over");
+  } else if (e.type === "dragleave" || e.type === "drop") {
+    e.target.classList.remove("over");
+  }
   return false;
 }
 
-listContainers.forEach(listContainer => {
+listContainers.forEach((listContainer) => {
   listContainer.addEventListener("drop", dropped);
   listContainer.addEventListener("dragenter", cancel);
   listContainer.addEventListener("dragover", cancel);
+  listContainer.addEventListener("dragleave", cancel);
 });
